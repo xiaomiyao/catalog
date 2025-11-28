@@ -1,70 +1,146 @@
-# Getting Started with Create React App
+# Movie Catalog App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application for browsing movies with favorites functionality.
+
+## Features
+
+- 🎬 Browse popular movies
+- 🔍 Search movies by title
+- ❤️ Add/remove movies to/from favorites
+- 📱 Responsive design
+- 💾 Favorites saved in localStorage
+- 🔄 Lazy loading with "Load More" button
+- 🎯 Detailed movie pages with full information
+
+## Setup Instructions
+
+### 1. Install Dependencies
+
+```bash
+cd movie-catalog
+npm install
+```
+
+### 2. Get TMDB API Key
+
+1. Go to [The Movie Database (TMDB)](https://www.themoviedb.org/)
+2. Create an account
+3. Go to Settings > API
+4. Request an API key
+5. Copy your API key
+
+### 3. Configure API Key
+
+Open `src/services/movieService.js` and replace `'your_api_key_here'` with your actual API key:
+
+```javascript
+const API_KEY = "your_actual_api_key_here";
+```
+
+### 4. Start the Application
+
+```bash
+npm start
+```
+
+The app will open at `http://localhost:3000`
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
+- `npm run eject` - Ejects from Create React App (irreversible)
 
-### `npm start`
+## Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+src/
+├── components/          # Reusable components
+│   ├── Header.js       # Navigation header
+│   ├── MovieCard.js    # Individual movie card
+│   └── MovieList.js    # Grid of movie cards
+├── context/            # React Context
+│   └── FavoritesContext.js  # Favorites state management
+├── pages/              # Page components
+│   ├── Home.js         # Main page with search and movie list
+│   ├── MovieDetail.js  # Individual movie details
+│   └── Favorites.js    # Favorites page
+├── services/           # API services
+│   └── movieService.js # TMDB API integration
+└── App.js              # Main app component
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- React 18
+- React Router DOM
+- Axios
+- TMDB API
+- CSS3 with modern features
+- LocalStorage for persistence
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features Implementation
 
-### `npm run build`
+### Main Page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Header with "Каталог фильмов" title
+- Search input with "Искать" button
+- Popular movies displayed on load
+- "Load More" button for pagination
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Movie Cards
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Poster image
+- Movie title
+- Release year
+- Rating
+- "В избранное" button
 
-### `npm run eject`
+### Movie Detail Page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Full movie information
+- Poster and backdrop images
+- Description, rating, genres
+- Add/remove from favorites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Favorites Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- List of all favorited movies
+- Counter in header
+- Persistent storage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Advanced Features
 
-## Learn More
+- LocalStorage persistence
+- Lazy loading
+- "No movies found" message
+- Responsive design
+- Loading states
+- Error handling
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## API Endpoints Used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `/movie/popular` - Get popular movies
+- `/search/movie` - Search movies
+- `/movie/{id}` - Get movie details
+- `/movie/{id}/images` - Get movie images
 
-### Code Splitting
+## Browser Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-### Analyzing the Bundle Size
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is open source and available under the MIT License.
